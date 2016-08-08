@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Aug 8, 2016 11:10:33 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="src.pojo.Mapping" table="mapping" catalog="inventory" optimistic-lock="version">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="item" class="src.pojo.Item" fetch="select">
+            <column name="item_id" not-null="true" />
+        </many-to-one>
+        <many-to-one name="location" class="src.pojo.Location" fetch="select">
+            <column name="location_id" not-null="true" />
+        </many-to-one>
+    </class>
+</hibernate-mapping>
